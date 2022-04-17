@@ -1,4 +1,5 @@
 cd
+export COLORTERM=truecolor
 export PATH=$PATH:/usr/local/go/bin
 export NODE_OPTIONS=--max_old_space_size=8192
 
@@ -20,6 +21,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias v="$HOME/.appimages/nvim.appimage"
+alias t="tmux -f $HOME/.config/tmux/tmux.conf"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
