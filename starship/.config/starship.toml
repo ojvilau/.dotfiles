@@ -60,6 +60,8 @@ $time\
 $line_break\
 $character"""
 
+command_timeout = 10000
+
 [time]
 disabled = true
 use_12hr = true
