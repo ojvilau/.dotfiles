@@ -1,3 +1,5 @@
+zmodload -F zsh/parameter p:aliases
+
 cd
 export COLORTERM=truecolor
 export PATH=$PATH:/usr/local/go/bin
@@ -22,16 +24,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias v="$HOME/.appimages/nvim.appimage"
 alias t="tmux -f $HOME/.config/tmux/tmux.conf"
+alias gprunelist="git fetch -p && git branch -vv | grep ': gone]' | grep -v \"\\*\" | awk '{ print \$1; }'"
+alias gprune="$aliases[gprunelist] | xargs -r git branch -d"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-eval "$(starship init zsh)"
-
-
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+[ -s "/home/ojvilau/.bun/_bun" ] && source "/home/ojvilau/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(starship init zsh)"
