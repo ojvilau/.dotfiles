@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="$HOME/.appimages/nvim.appimage"
 alias t="tmux -f $HOME/.config/tmux/tmux.conf"
 alias gprunelist="git fetch -p && git branch -vv | grep ': gone]' | grep -v \"\\*\" | awk '{ print \$1; }'"
-alias gprune="$aliases[gprunelist] | xargs -r git branch -d"
+alias gprune="$aliases[gprunelist] | xargs -r git branch -D"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
