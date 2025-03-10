@@ -1,3 +1,5 @@
 # nvim packer
 packer_compiled.lua
 nvim/.config/nvim/pack/
+**/nvim.back*/
+nvim/.config/nvim.bak*/
