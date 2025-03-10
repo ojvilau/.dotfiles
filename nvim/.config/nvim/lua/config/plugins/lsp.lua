@@ -38,7 +38,7 @@ local lsp = {
     end
   }
 }
---[[
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -59,6 +59,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   end,
 })
-]] --
 
 return lsp
