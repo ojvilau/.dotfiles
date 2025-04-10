@@ -42,3 +42,46 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
+
+vf() {
+  local selection
+  selection=$(fzf --walker-root="$HOME" --walker=dir)
+  if [ -n "$selection" ]; then
+    cd "$selection"
+    $aliases[v] .
+  else
+    echo "No directory selected."
+  fi
+}
+
+vfw() {
+  local selection
+  selection=$(fzf --walker-root="$HOME/projects" --walker=dir)
+  if [ -n "$selection" ]; then
+    cd "$selection"
+    $aliases[v] .
+  else
+    echo "No directory selected."
+  fi
+}
+
+cdf() {
+  local selection
+  selection=$(fzf --walker-root="$HOME" --walker=dir,hidden)
+  if [ -n "$selection" ]; then
+    cd "$selection"
+  else
+    echo "No directory selected."
+  fi
+}
+
+cdw() {
+  local selection
+  selection=$(fzf --walker-root="$HOME/projects" --walker=dir)
+  if [ -n "$selection" ]; then
+    cd "$selection"
+  else
+    echo "No directory selected."
+  fi
+}
+
