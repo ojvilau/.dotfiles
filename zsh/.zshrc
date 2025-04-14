@@ -26,7 +26,14 @@ eval "$(fzf --zsh)"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias v="$HOME/.appimages/nvim.appimage"
+NVIM_APPIMAGE="$HOME/.appimages/nvim.appimage"
+if [ -f $NVIM_APPIMAGE ]; then
+  alias v=$NVIM_APPIMAGE
+  echo "nvim - using $NVIM_APPIMAGE"
+elif command -v nvim 2>&1 >/dev/null; then
+  echo "nvim - using $(which nvim)"
+  alias v="nvim"
+fi
 alias t="tmux -f $HOME/.config/tmux/tmux.conf"
 alias gprunelist="git fetch -p && git branch -vv | grep ': gone]' | grep -v \"\\*\" | awk '{ print \$1; }'"
 alias gprune="$aliases[gprunelist] | xargs -r git branch -D"
