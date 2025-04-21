@@ -1,21 +1,33 @@
 return {
 	"stevearc/conform.nvim",
 	config = function()
+		local tsjs = { "eslint_d", "prettierd", "prettier", stop_after_first = true }
 		local prettier = { "prettierd", "prettier", stop_after_first = true }
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run the first available formatter
-				javascript = prettier,
-				typescript = prettier,
-				javascriptreact = prettier,
-				typescriptreact = prettier,
-				svelte = prettier,
+				javascript = tsjs,
+				typescript = tsjs,
+				javascriptreact = tsjs,
+				typescriptreact = tsjs,
+				svelte = tsjs,
 				css = prettier,
-				html = prettier,
-				json = prettier,
-				yaml = prettier,
+				html = tsjs,
+				json = tsjs,
+				yaml = tsjs,
 				markdown = prettier,
+			},
+			formatter = {
+				eslint_d = {
+					cwd = require("conform.util").root_file({
+						".eslintrc.js",
+						".eslintrc.json",
+						"eslint.config.js",
+						"eslint.config.ts",
+						"package.json",
+					}),
+				},
 			},
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable
