@@ -25,6 +25,12 @@ set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>")
 set("n", "n", "nzz")
 set("n", "N", "Nzz")
+
+set("n", "<leader>cf", function()
+	vim.fn.setqflist({})
+	vim.cmd("cclose")
+end, { noremap = false, silent = false, desc = "[C]lear quick[f]ix list" })
+
 -- -- Save and quit
 -- set({ "n", "i" }, "<C-s>", "<Esc>:w<CR>")
 -- set({ "n", "i" }, "<C-S>", "<Esc>:wa<CR>")

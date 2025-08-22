@@ -84,6 +84,14 @@ return {
 			desc = "[F]ind [O]ld Files",
 		},
 		{
+			"<leader>fq",
+			function()
+				vim.cmd("cclose")
+				require("fzf-lua").quickfix()
+			end,
+			desc = "[F]ind [Q]ickfix list",
+		},
+		{
 			"<leader><leader>",
 			function()
 				require("fzf-lua").buffers()
@@ -98,4 +106,13 @@ return {
 			desc = "[/] Live grep the current buffer",
 		},
 	},
+	config = function()
+		require("fzf-lua").setup({
+			keymap = {
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
+		})
+	end,
 }
