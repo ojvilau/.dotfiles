@@ -50,6 +50,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
 
+java_home=/Library/Java/JavaVirtualMachines/jdk17/Contents/Home
+if [ -d "$java_home" ]; then
+  export JAVA_HOME=java_home
+fi
+
 vf() {
   local selection
   selection=$(fzf --walker-root="$HOME" --walker=dir)
@@ -92,3 +97,4 @@ cdw() {
   fi
 }
 
+. "$HOME/.local/bin/env"
