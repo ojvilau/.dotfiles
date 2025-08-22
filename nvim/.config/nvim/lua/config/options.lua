@@ -53,3 +53,9 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for foldi
 vim.opt.foldlevel = 99 -- Keep all folds open by default
 
 vim.opt.iskeyword:append("-")
+
+vim.filetype.add({
+	pattern = {
+		[".*.pcss"] = "scss",
+	},
+})
