@@ -17,8 +17,8 @@ fi
 
 nvimAppimage="$appimagesDir/nvim.appimage"
 if [ ! -f "$nvimAppimage" ]; then
-    nightly="https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
-    stable="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+    nightly="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage"
+    stable="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage"
 
     echo "Which version of neovim do you want to download?"
     echo "1. Stable"
