@@ -47,5 +47,9 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+-- Folding Settings
+vim.opt.foldmethod = "expr" -- Use expression for folding
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
+vim.opt.foldlevel = 99 -- Keep all folds open by default
 
 vim.opt.iskeyword:append("-")
