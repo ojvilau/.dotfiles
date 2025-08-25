@@ -21,6 +21,10 @@ set("n", ">", "V>")
 set("v", "<", "<gv")
 set("v", ">", ">gv")
 
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>")
+set("n", "n", "nzz")
+set("n", "N", "Nzz")
 -- -- Save and quit
 -- set({ "n", "i" }, "<C-s>", "<Esc>:w<CR>")
 -- set({ "n", "i" }, "<C-S>", "<Esc>:wa<CR>")

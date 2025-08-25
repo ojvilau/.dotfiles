@@ -26,6 +26,8 @@ local options = {
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
 	tabstop = 2, -- insert 2 spaces for a tab
 	softtabstop = 2, -- insert 2 spaces for a tab
+	smarttab = true,
+	autoindent = true,
 	smartindent = true, -- make indenting smarter again
 	cursorline = true, -- highlight the current line
 	-- laststatus = 3,
@@ -39,6 +41,7 @@ local options = {
 	-- scrolloff = 8, -- is one of my fav
 	-- sidescrolloff = 8,
 	-- guifont = "monospace:h17", -- the font used in graphical neovim applications
+	smoothscroll = true,
 }
 
 for k, v in pairs(options) do
