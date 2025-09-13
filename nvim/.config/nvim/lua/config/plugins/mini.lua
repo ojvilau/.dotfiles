@@ -16,6 +16,7 @@ return {
 			require("mini.notify").setup()
 			require("mini.surround").setup()
 			require("mini.pairs").setup()
+			require("mini.trailspace").setup()
 		end,
 	},
 	{
