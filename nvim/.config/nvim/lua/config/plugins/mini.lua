@@ -6,19 +6,18 @@ vim.opt.termguicolors = true
 
 return {
 	{
-		"nvim-mini/mini.nvim",
+		"nvim-mini/mini.icons",
 		config = function()
 			local mini_icons = require("mini.icons")
 			mini_icons.setup()
 			mini_icons.mock_nvim_web_devicons()
-
-			require("mini.statusline").setup({ use_icons = true })
-			require("mini.notify").setup()
-			require("mini.surround").setup()
-			require("mini.pairs").setup()
-			require("mini.trailspace").setup()
 		end,
 	},
+	{ "nvim-mini/mini.statusline", version = false, use_icons = true },
+	{ "nvim-mini/mini.notify", version = false, opts = {} },
+	{ "nvim-mini/mini.surround", version = false, opts = {} },
+	{ "nvim-mini/mini.pairs", version = false, opts = {} },
+	{ "nvim-mini/mini.trailspace", version = false, opts = {} },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
