@@ -51,8 +51,8 @@ local M = {
 			vim.lsp.enable(server)
 		end
 
-		vim.lsp.config("tsgo", { capabilities = capabilities })
-		vim.lsp.enable("tsgo")
+		-- vim.lsp.config("tsgo", { capabilities = capabilities })
+		-- vim.lsp.enable("tsgo")
 
 		AddDiagnostics()
 		CreateAutoCmd()

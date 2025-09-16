@@ -1,2 +1,7 @@
 window-height = 50
 window-width = 180
+
+keybind = ctrl+b>k=goto_split:up
+keybind = ctrl+b>j=goto_split:down
+keybind = ctrl+b>l=goto_split:right
+keybind = ctrl+b>h=goto_split:left
