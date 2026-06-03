@@ -28,7 +28,8 @@ local M = {
 					},
 				},
 			},
-			-- tsgo = {},
+			tsgo = {},
+			-- angularls = {},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -50,9 +51,6 @@ local M = {
 			vim.lsp.config(server, config)
 			vim.lsp.enable(server)
 		end
-
-		-- vim.lsp.config("tsgo", { capabilities = capabilities })
-		-- vim.lsp.enable("tsgo")
 
 		AddDiagnostics()
 		CreateAutoCmd()
@@ -122,7 +120,10 @@ function CreateAutoCmd()
 
 			-- Execute a code action, usually your cursor needs to be on top of an error
 			-- or a suggestion from your LSP for this to activate.
-			map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+			-- map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+			map("<leader>ca", function()
+				require("fzf-lua").lsp_code_actions({ previewer = false })
+			end, "[C]ode [A]ction", { "n", "x" })
 
 			-- WARN: This is not Goto Definition, this is Goto Declaration.
 			--  For example, in C this would take you to the header.
