@@ -50,6 +50,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
 
+# Point to specific Java SDK version in MacOS
 java_home=/Library/Java/JavaVirtualMachines/jdk17/Contents/Home
 if [ -d "$java_home" ]; then
   export JAVA_HOME=java_home
@@ -98,10 +99,6 @@ cdw() {
 }
 
 . "$HOME/.local/bin/env"
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 
 # pnpm
 export PNPM_HOME="/home/ojvilau/.local/share/pnpm"
