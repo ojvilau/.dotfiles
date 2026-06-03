@@ -39,14 +39,6 @@ else
     echo "- nvim appimage found"
 fi
 
-packer="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if [ ! -d "$packer" ]; then
-    echo "- downloading packer"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim "$packer"
-else
-    echo "- packer found"
-fi
-
 echo "- installing starship prompt"
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 echo "- starship installed"
