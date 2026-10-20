@@ -1,12 +1,11 @@
 return {
 	"stevearc/conform.nvim",
 	config = function()
-		local tsjs = { "eslint_d", "prettierd", "prettier", stop_after_first = true }
-		local prettier = { "prettierd", "prettier", stop_after_first = true }
+		local tsjs = { "prettierd", "eslint_d", stop_after_first = false }
+		local prettier = { "prettierd", stop_after_first = true }
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform will run the first available formatter
 				javascript = tsjs,
 				typescript = tsjs,
 				javascriptreact = tsjs,
