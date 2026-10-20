@@ -16,9 +16,16 @@ export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(git ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
+source $HOME/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle ssh-agent
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Set up fzf key bindings and fuzzy completion
@@ -44,7 +51,7 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # bun completions
-[ -s "/home/ojvilau/.bun/_bun" ] && source "/home/ojvilau/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -103,9 +110,23 @@ cdw() {
 . "$HOME/.local/bin/env"
 
 # pnpm
-export PNPM_HOME="/home/ojvilau/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
